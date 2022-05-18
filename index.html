@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoStudio</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="./image/logo.png" alt="logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Office</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <img src="./image/menu.png" alt="menu" class="menu-icon">
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <div class="text-box">
+                   <h5>Our Photos</h5> 
+                   <h1> <b>Simplicity</b><br> is the <b>ultimate</b> sophimgistication</h1>
+                </div>
+
+                <img src="./image/circle.png" alt="" class="small-icon1">
+                <img src="./image/circle.png" alt="" class="small-icon2">
+                <img src="./image/square.png" alt="" class="small-icon3">
+
+            </div>
+            <div class="col">
+                <div class="gallery-box">
+                    <img src="./image/pic2.jpg" alt="" id="gallery">
+
+                    <ul>
+                        <li class="btn">01</li>
+                        <li class="btn active">02</li>
+                        <li class="btn">03</li>
+                        <li class="btn">04</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <img src="./image/circle.png" alt="" class="small-icon4">
+        <img src="./image/square.png" alt="" class="small-icon5">
+    </div>
+    <!-- cursor style  -->
+    <div id="cursor"></div>
+
+    <!-- cursor style js  -->
+    <script>
+        var cursor = document.getElementById("cursor");
+        document.onmousemove = function(e){
+            cursor.style.left =( e.pageX - 25) + "px";
+            cursor.style.top = (e.pageY - 25)+ "px";
+            cursor.style.display = "block";
+        }
+    </script>
+
+    <!-- gallery style js  -->
+    <script>
+        var btn = document.getElementsByClassName('btn'); 
+        var gallery = document.getElementById('gallery');
+
+        var images = new Array(
+            "./image/pic1.jpg",
+            "./image/pic2.jpg",
+            "./image/pic3.jpg",
+            "./image/pic4.jpg"
+        )
+
+        for(let i = 0; i < btn.length; i++){
+            btn[i].onclick = function()
+            {
+                gallery.src = images[i];
+                let current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace("active", "");
+                this.className += " active";
+            }
+        }
+    </script>
+</body>
+</html>
