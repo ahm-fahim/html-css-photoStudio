@@ -9,6 +9,8 @@
   background: linear-gradient(145deg, #3d04cf, #fffffffd);
   color: #fff;
   position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .navbar {
